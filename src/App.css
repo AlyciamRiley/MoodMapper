@@ -3,21 +3,19 @@
 }
 
 .navbar {
-  background-color: lightblue;
   height: 5rem;
   margin: 0;
 }
 
 .sidebar {
-  background-color: lightcyan;
+  border: 2px solid black;
   height: 27rem;
 }
 
 .main {
-  background-color: lightgrey;
+  border: 2px solid black;
 }
 
 .footer {
-  background-color: lightyellow;
   height: 2rem;
 }

@@ -36,6 +36,7 @@ export default class navbar extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+
            
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav>
@@ -53,22 +54,28 @@ export default class navbar extends React.Component {
                     Reset
                   </DropdownItem>
                 </DropdownMenu>
+
+
+              {/* -----Create new----- */}
+            <NavItem>
+                <NavLink href="/survey/">Create New</NavLink>
+              </NavItem>
+
+               {/* -----MoodHistory---- */}
+
+
                 </UncontrolledDropdown>
-                
+
                 <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav>
-                  Options
+                <DropdownToggle nav caret>
+                  Mood History
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem>
-                    Option 1
+                     View Graph
                   </DropdownItem>
                   <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
+                    Edit Previous Entry
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -90,21 +97,27 @@ export default class navbar extends React.Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+
+              </UncontrolledDropdown>
+
+               {/* -----FAQ----- */}
+              <NavItem>
+                <NavLink href="/faq/">FAQ</NavLink>
+              </NavItem>
               
+
+               {/* -----Profile----- */}
+
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav>
-                  Options
+                <DropdownToggle nav caret>
+                  Profile 
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem>
-                    Option 1
+                    Your Profile
                   </DropdownItem>
                   <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
+                    Logout
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
