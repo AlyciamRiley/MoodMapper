@@ -1,8 +1,12 @@
 .quote {
     color: #B9BC28;
+    text-justify: inter-word;
     
 }
 
+.sidebar {
+    padding-top: 3rem;
+}
 .sidebar.quote {
     height: 100%;
     overflow: hidden;
