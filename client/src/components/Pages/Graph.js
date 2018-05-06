@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import { Chart } from 'react-google-charts';
+var axios = require("axios");
 
 // export default class Graph extends Component {
 //   constructor (props) {
@@ -33,8 +34,17 @@ import { Chart } from 'react-google-charts';
 
 
 class Graph extends React.Component {
+  
+  GraphData(){
+    axios.get('/api/graph')
+    .then(response => console.log(response));
+  }
+
+ 
+
   constructor(props) {
     super(props);
+    this.GraphData();
     this.chartEvents = [
       {
         eventName: 'select',
@@ -42,16 +52,20 @@ class Graph extends React.Component {
             // Returns Chart so you can access props and  the ChartWrapper object from chart.wrapper
           console.log('Selected ', Chart.chart.getSelection());
         },
+        
       },
     ];
+ 
     this.state = {
       options: {
         title: 'My Moods',
         hAxis: { title: 'Date', minValue: new Date("2018-05-01"), maxValue: new Date('2018-05-30')},
         vAxis: { title: 'Mood Range',minValue: 0, maxValue: 10 },
         legend: 'none',
+        graphData: []
       },
       rows: [
+        // return graphData.map((item, i)=> )
         //[Date, AnswerValue]
         [new Date('2018-05-01'),1],
         [new Date('2018-05-04'), 2],
