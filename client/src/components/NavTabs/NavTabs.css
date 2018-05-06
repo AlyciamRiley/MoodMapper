@@ -13,6 +13,11 @@ Lt. Gray: B4B4B4
 
 */
 
+.navbar {
+  border-bottom: 1px solid #8B8B8B;
+}
+
+
 .strap-nav {
   width: 100%;
   margin: 0;
@@ -30,9 +35,13 @@ h2  {
 
 .logo {
   float: left;
+  margin-bottom: -1.5rem;
   width: 17rem;
 }
 
+.nav-link {
+  margin-bottom: -1rem;
+}
 h2:hover {
   color: #FF7993;
 }

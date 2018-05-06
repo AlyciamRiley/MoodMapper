@@ -1,66 +1,40 @@
 import React from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
-import classnames from 'classnames';    
-import Forms from './Forms'
-import Signup from './Signup';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
 
 
 export default class Login extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
+  constructor(props){
+    super(props)
     this.state = {
-      activeTab: '1'
-    };
-  }
-
-  toggle(tab) {
-    if (this.state.activeTab !== tab) {
-      this.setState({
-        activeTab: tab
-      });
+      email: '',
+      password: ''
     }
   }
+  handleSubmitForm = (event) => {
+      
+    console.log(event.target.name);
+    alert(this.state.email);
+    this.preventDefault();
+    return false;
+  }
+  handleChange = (event) => {
+    this.setState({value: event.target.value});
+  }
+
   render() {
     return (
-      <div>
-        <Nav tabs>
-          <NavItem>
-            <NavLink
-              className={classnames({ active: this.state.activeTab === '1' })}
-              onClick={() => { this.toggle('1'); }}
-            >
-              Login
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              className={classnames({ active: this.state.activeTab === '2' })}
-              onClick={() => { this.toggle('2'); }}
-            >
-              Sign up
-            </NavLink>
-          </NavItem>
-        </Nav>
-        <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1">
-            <Row>
-              <Col sm="12">
-                <h4><Forms /></h4>
-              </Col>
-            </Row>
-          </TabPane>
-          <TabPane tabId="2">
-            <Row>
-              <Col sm="6">
-              <h4><Signup /></h4>
-              </Col>
-    
-            </Row>
-          </TabPane>
-        </TabContent>
-      </div>
+      <Form onSubmit={this.handleSubmitForm}>
+        <FormGroup>
+          <Label for="exampleEmail">Email</Label>
+          <Input key="emailKey" onChange={this.handleChange} type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+        </FormGroup>
+        <FormGroup>
+          <Label for="examplePassword">Password</Label>
+          <Input key="passwordKey" onChange={this.handleChange} type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+        </FormGroup>
+        <Button type="submit">Submit</Button>
+      </Form>
     );
   }
 }
