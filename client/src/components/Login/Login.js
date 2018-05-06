@@ -12,10 +12,11 @@ export default class Login extends React.Component {
     }
   }
   handleSubmitForm = (event) => {
-    console.log(this.state.email)
-    alert(this.state.email)
-    this.preventDefault()
-
+      
+    console.log(event.target.name);
+    alert(this.state.email);
+    this.preventDefault();
+    return false;
   }
   handleChange = (event) => {
     this.setState({value: event.target.value});
