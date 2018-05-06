@@ -46,27 +46,30 @@ class Graph extends React.Component {
     ];
     this.state = {
       options: {
-        title: 'Age vs. Weight comparison',
-        hAxis: { title: 'Age', minValue: 0, maxValue: 15 },
-        vAxis: { title: 'Weight', minValue: 0, maxValue: 15 },
+        title: 'My Moods',
+        hAxis: { title: 'Date', minValue: new Date("2018-05-01"), maxValue: new Date('2018-05-30')},
+        vAxis: { title: 'Mood Range',minValue: 0, maxValue: 10 },
         legend: 'none',
       },
       rows: [
-        [8, 12],
-        [4, 5.5],
-        [11, 14],
-        [4, 5],
-        [3, 3.5],
-        [6.5, 7],
+        //[Date, AnswerValue]
+        [new Date('2018-05-01'),1],
+        [new Date('2018-05-04'), 2],
+        [new Date('2018-05-13'), 3],
+        // [4, 2],
+        // [5, 5],
+        // [6, 5],
       ],
       columns: [
+
         {
-          type: 'number',
-          label: 'Age',
+          // format: 'YYYY-MM-DD',
+          type: 'date',
+          label: 'Date',
         },
         {
           type: 'number',
-          label: 'Weight',
+          label: 'Mood Range',
         },
       ],
     };
@@ -74,7 +77,7 @@ class Graph extends React.Component {
   render() {
     return (
       <Chart
-        chartType="ScatterChart"
+        chartType="LineChart"
         rows={this.state.rows}
         columns={this.state.columns}
         options={this.state.options}
