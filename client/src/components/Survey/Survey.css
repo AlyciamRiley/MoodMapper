@@ -20,7 +20,7 @@ Lt. Gray: B4B4B4
   body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
   
   .container {
@@ -51,27 +51,33 @@ Lt. Gray: B4B4B4
     margin: 0;
     padding: 0;
     list-style: none;
+    font-size: 8px;
+    
   }
   
   /* QuestionCount Component */
   .questionCount {
     padding: 1.5rem 2.5rem 0;
-    font-size: 14px;
+    font-size: 12px;
   }
   
   /* Question Component */
   .question {
     margin: 0;
     padding: 0.5rem 2.5rem 1.5rem 2.5rem;
+    font-size: 22px;
+    font-weight: bold;
+    color: #FF9754;
   }
   
   /* AnswerOption Component */
   .answerOption {
-    border-top: 1px solid #eee;
+    height: 2rem;
   }
   
   .answerOption:hover {
-    background-color: #eefbfe;
+    background-color:#FF7993;
+    color: #fff;
   }
   
   .radioCustomButton {
@@ -83,7 +89,7 @@ Lt. Gray: B4B4B4
   .radioCustomButton,
   .radioCustomLabel {
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: center;
       cursor: pointer;
   }
   
@@ -91,22 +97,24 @@ Lt. Gray: B4B4B4
       position: relative;
       width: 100%;
       margin: 0;
-      padding: 1.5rem 2.5rem 1.5rem 5rem;
+      padding-left: 4rem;
+      padding-top: .2rem;
+
       font-size: 16px;
-      line-height: 1.5;
+      line-height: 1;
   }
   
   .radioCustomButton ~ .radioCustomLabel:before {
       position: absolute;
-      top: 20px;
+      top: 8px;
       left: 38px;
-      width: 28px;
-      height: 28px;
+      width: 12px;
+      height: 12px;
       content: '';
       display: inline-block;
       vertical-align: middle;
       background: #fff;
-      border: 1px solid #bbb;
+      border: 1px solid #8B8B8B;
       border-radius: 50%;
       transition: all 0.3s;
   }
