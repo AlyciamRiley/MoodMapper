@@ -25,4 +25,9 @@ module.exports = function(app){
             res.json(data);
         });
     });
+
+
+    //get all for userid
+
+    
 };
