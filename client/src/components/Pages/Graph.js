@@ -130,6 +130,14 @@ class Graph extends React.Component {
           label: 'Concentration',
         },
         {
+          type: 'date',
+          label: 'Date',
+        },
+        {
+          type: 'number',
+          label: 'Type2',
+        },
+        {
           type: 'number',
           label: 'Energy',
         },
