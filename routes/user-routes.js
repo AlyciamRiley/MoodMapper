@@ -2,9 +2,18 @@
 // ===============================================================================================
 var db = require("../models");
 var passport = require("../config/passport");
+var axios = require("axios");
 
 module.exports = function (app) {
-    app.post("/api/login", passport.authentication("local"), 
+
+// CC: Redirect after authenticating a request
+app.post('/api/login',
+    passport.authenticate('local', 
+        {successRedirect: '/', //change redirect other than root
+        failureRedirect: '/signup'}
+    ));
+
+app.post("/api/login", passport.authentication("local"), 
 function (req, res) {
 
     //I think this will return profile page after user logs in? Not sure.
@@ -14,13 +23,13 @@ function (req, res) {
 
 //Create new user
 app.post("/api/signup", function (req, res) {
-    console.log(req.body);
+    console.log("SIGNUP" , req.body);
     db.User.create({
-        name: req.body.name,
+        // name: req.body.name,
         email: req.body.email,
         password: req.body.password
     }).then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/api/signup");
     }).catch(function(err) {
         console.log(err);
         res.json(err);
@@ -32,13 +41,5 @@ app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/login");
 });
-
-
-
-
-
-
-
-
 
 }

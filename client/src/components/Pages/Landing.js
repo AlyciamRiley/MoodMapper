@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  NavLink
-} from "react-router-dom";
+// import {
+//   BrowserRouter 
+// } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import Wrapper from "../Wrapper";
 import Forms from "../../components/Login/Forms";
-import Main from "../Main";
+// import Main from "../Main";
 import "../../UserRoutes/html-routes.js";
 import "./PagesStyles/Landing.css";
 
