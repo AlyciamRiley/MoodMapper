@@ -7,11 +7,6 @@ var axios = require("axios");
 module.exports = function (app) {
 
 // CC: Redirect after authenticating a request
-app.post('/api/login',
-    passport.authenticate('local', 
-        {successRedirect: '/', //change redirect other than root
-        failureRedirect: '/signup'}
-    ));
 
 app.post("/api/login", passport.authentication("local"), 
 function (req, res) {

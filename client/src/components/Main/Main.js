@@ -27,7 +27,7 @@ class Main extends Component {
               </Col>
               <Col lg="10" className="home">
                 <Switch>
-               /
+               
                   <Route exact path="/Survey" component={Survey} />
                   <Route exact path="/Graph" component={Graph} />
                   <Route exact path="/Faq" component={Faq} />

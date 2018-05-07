@@ -2,8 +2,7 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from "axios";
 
-export default class Signup extends 
-React.Component {  
+export default class Signup extends React.Component {  
   constructor(props){
     super(props)
     this.state = {
@@ -15,7 +14,7 @@ React.Component {
 
 handleSubmitForm = (event) => {
     this.preventDefault();  
-    console.log(this.state.email);
+   
        
 
     var xhr = function(){
@@ -30,7 +29,9 @@ handleSubmitForm = (event) => {
         beforeSend: function(){
             this.setState({loading: true});
         }.bind(this)
+       
       })
+      console.log("this" , this);
     } 
     xhr.done = function(data){
         this.refs.user_form.getDOMNode().reset();
