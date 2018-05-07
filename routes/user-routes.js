@@ -4,12 +4,20 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function (app) {
-    app.post("/api/login", passport.authentication("local"), 
-function (req, res) {
 
-    //I think this will return profile page after user logs in? Not sure.
-    res.json("/Profile");
-});
+// CC: Redirect after authenticating a request
+app.post('/api/login',
+    passport.authenticate('local', 
+        {successRedirect: '/', //change redirect other than root
+        failureRedirect: '/signup'}
+    ));
+
+// app.post("/api/login", passport.authentication("local"), 
+// function (req, res) {
+
+//     //I think this will return profile page after user logs in? Not sure.
+//     res.json("/Profile");
+// });
 
 
 //Create new user
@@ -32,13 +40,5 @@ app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/login");
 });
-
-
-
-
-
-
-
-
 
 }
