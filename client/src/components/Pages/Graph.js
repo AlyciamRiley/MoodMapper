@@ -35,10 +35,44 @@ var axios = require("axios");
 
 class Graph extends React.Component {
   
-  GraphData(){
+  GraphData(){   
     axios.get('/api/graph')
-    .then(response => console.log(response));
+    // .then(response => console.log(response.data));
+    .then(res => {
+      const answers = res.data;
+      console.log(answers);
+      let anxiety = [];
+      let depression = [];
+      let concentration = [];
+      let energy = [];
+      let sleep = [];
+      let date = [];
+
+      answers.forEach(element => {
+        anxiety.push(element.anxiety);
+        depression.push(element.depression);
+        concentration.push(element.concentration);
+        energy.push(element.energy);
+        sleep.push(element.sleep);
+        date.push(element.createdAt);
+      });
+
+      console.log("Sleep", sleep);
+      console.log("Anxiety", anxiety);
+      console.log("Depression", depression);
+      console.log("Energy", energy);
+      console.log("Concentration", concentration);
+      console.log("Date", date);
+
+      // this.setState({
+      //   graphData: 
+      // })
+    })
+    //this does return all the db info to the state. but need to first loop thru it before setting state.
+    // .then(response => this.setState({graphData:response.data}));
+  
   }
+
 
  
 
@@ -59,17 +93,19 @@ class Graph extends React.Component {
     this.state = {
       options: {
         title: 'My Moods',
-        hAxis: { title: 'Date', minValue: new Date("2018-05-01"), maxValue: new Date('2018-05-30')},
-        vAxis: { title: 'Mood Range',minValue: 0, maxValue: 10 },
-        legend: 'none',
+        titleFontSize: 25,
+        hAxis: { title: 'Date', minValue: new Date("2018-05-01"), maxValue: new Date('2018-05-07')},
+        vAxis: { title: 'Mood Range',minValue: 0, maxValue: 10 },        
+        legend: "right",
+        legendFontSize: 10,
         graphData: []
       },
       rows: [
         // return graphData.map((item, i)=> )
         //[Date, AnswerValue]
-        [new Date('2018-05-01'),1],
-        [new Date('2018-05-04'), 2],
-        [new Date('2018-05-13'), 3],
+        [new Date('2018-05-02'), 1,2,4,4,2],
+        [new Date('2018-05-04'), 2,4,4,5,5],
+        [new Date('2018-05-05'), 3,5,1,2,3],
         // [4, 2],
         // [5, 5],
         // [6, 5],
@@ -83,7 +119,23 @@ class Graph extends React.Component {
         },
         {
           type: 'number',
-          label: 'Mood Range',
+          label: 'Anxiety',
+        },
+        {
+          type: 'number',
+          label: 'Depression',
+        },
+        {
+          type: 'number',
+          label: 'Concentration',
+        },
+        {
+          type: 'number',
+          label: 'Energy',
+        },
+        {
+          type: 'number',
+          label: 'Sleep',
         },
       ],
     };
@@ -95,7 +147,7 @@ class Graph extends React.Component {
         rows={this.state.rows}
         columns={this.state.columns}
         options={this.state.options}
-        graph_id="ScatterChart"
+        graph_id="LineChart"
         width="100%"
         height="400px"
         chartEvents={this.chartEvents}
