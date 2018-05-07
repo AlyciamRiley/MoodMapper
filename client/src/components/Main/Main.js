@@ -27,11 +27,8 @@ class Main extends Component {
               </Col>
               <Col lg="10" className="home">
                 <Switch>
-<<<<<<< Updated upstream
-               /
+               
                   <Route exact path="/Survey" component={Survey} />
-=======
->>>>>>> Stashed changes
                   <Route exact path="/Graph" component={Graph} />
                   <Route exact path="/Faq" component={Faq} />
                   <Route exact path="/Profile" component={Profile} />
