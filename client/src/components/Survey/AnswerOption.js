@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 function AnswerOption(props) {
-  console.log("AnswerOption", props);
 
   return (
     <li className="answerOption">

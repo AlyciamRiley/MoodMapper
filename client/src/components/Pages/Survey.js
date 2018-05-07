@@ -10,7 +10,6 @@ class App extends Component {
  
 
   constructor(props) {
-    console.log("Survey", props);
     super(props);
     
     
@@ -36,37 +35,12 @@ class App extends Component {
       answerOptions: quizQuestions[0].answers
     });
   }
-  
-
-  // shuffleArray(array) {
-  //   var currentIndex = array.length, temporaryValue, randomIndex;
-
-  //   // While there remain elements to shuffle...
-  //   while (0 !== currentIndex) {
-
-  //     // Pick a remaining element...
-  //     randomIndex = Math.floor(Math.random() * currentIndex);
-  //     currentIndex -= 1;
-
-  //     // And swap it with the current element.
-  //     temporaryValue = array[currentIndex];
-  //     array[currentIndex] = array[randomIndex];
-  //     array[randomIndex] = temporaryValue;
-  //   }
-
-  //   return array;
-  // };
-
 
   handleAnswerSelected(event) {
    
     this.setUserAnswer(event.currentTarget.value);
-    // console.log("SELECTED ANSWER", event.currentTarget.value);
     const answer = event.currentTarget.value;
-    console.log("ANSWER", answer);
-    // console.log("QUESTIONID", this.state.questionId);
     const question = this.state.questionId;
-    console.log("QUESTION", question);
  
     
 
@@ -79,10 +53,7 @@ class App extends Component {
    
   }
 
-  setUserAnswer(answer) {
-    console.log("setUserAnswer", answer);
-     
-    
+  setUserAnswer(answer) {     
 
     const updatedAnswersCount = update(this.state.answersCount, {
       [answer]: {$apply: (currentValue) => currentValue + 1}
@@ -134,28 +105,12 @@ class App extends Component {
       sleep: parseInt(this.state.finalAnswers[4])
     };
 
-    console.log(whatevs)
 
     axios({
       method: 'post',
       url: '/api/survey',
       data : whatevs
     });
-
-    // axios.post("/api/survey", {
-    //   anxiety: whatevs.anxiety,
-    //   depression: whatevs.depression,
-    //   concentration: whatevs.concentration,
-    //   energy: whatevs.energy,
-    //   sleep: whatevs.sleep
-    // })
-    // .then(function(response){
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // })
-    
   }
 
   renderQuiz() {
