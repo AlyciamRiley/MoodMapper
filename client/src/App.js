@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 
 import Wrapper from "./components/Wrapper";
 import Main from "./components/Main/";
-import Landing from "./components/Pages/Landing"
+// import Landing from "./components/Pages/Landing"
 
 
 import "./App.css";

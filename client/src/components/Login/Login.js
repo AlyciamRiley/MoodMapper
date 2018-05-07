@@ -35,7 +35,7 @@ handleSubmitForm = (event) => {
     } 
     xhr.done = function(data){
         this.refs.user_form.getDOMNode().reset();
-        this.state.loading = false;
+        this.setState = false;
         //TODO: redirect to a route
     }
 }

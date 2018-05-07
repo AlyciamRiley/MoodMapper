@@ -2,6 +2,7 @@
 // ===============================================================================================
 var db = require("../models");
 var passport = require("../config/passport");
+var axios = require("axios");
 
 module.exports = function (app) {
 
@@ -12,23 +13,23 @@ app.post('/api/login',
         failureRedirect: '/signup'}
     ));
 
-// app.post("/api/login", passport.authentication("local"), 
-// function (req, res) {
+app.post("/api/login", passport.authentication("local"), 
+function (req, res) {
 
-//     //I think this will return profile page after user logs in? Not sure.
-//     res.json("/Profile");
-// });
+    //I think this will return profile page after user logs in? Not sure.
+    res.json("/Profile");
+});
 
 
 //Create new user
 app.post("/api/signup", function (req, res) {
-    console.log(req.body);
+    console.log("SIGNUP" , req.body);
     db.User.create({
-        name: req.body.name,
+        // name: req.body.name,
         email: req.body.email,
         password: req.body.password
     }).then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/api/signup");
     }).catch(function(err) {
         console.log(err);
         res.json(err);
