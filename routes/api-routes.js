@@ -4,7 +4,6 @@ var axios = require("axios");
 module.exports = function(app){
     //routes go here
     app.get("/api/graph", function(req, res){
-        console.log('HERE', req)
         db.Mood.findAll({}).then(function(data){
             return res.json(data);
         });
@@ -12,7 +11,6 @@ module.exports = function(app){
 
 
     app.post("/api/survey", function(req, res){
-        console.log("BODY", req.body);
 
         db.Mood.create({
             anxiety: req.body.anxiety,
