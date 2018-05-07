@@ -1,5 +1,5 @@
 // Requiring models
-// ===============================================================================================
+
 var db = require("../models");
 var passport = require("../config/passport");
 var axios = require("axios");
