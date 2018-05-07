@@ -8,5 +8,5 @@ import registerServiceWorker from "./registerServiceWorker";
 import Landing from "../src/components/Pages/Landing";
 import Main from "./components/Main";
 
-ReactDOM.render(<Main />, document.getElementById("root"));
+ReactDOM.render(<Landing />, document.getElementById("root"));
 registerServiceWorker();
