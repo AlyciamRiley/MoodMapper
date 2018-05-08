@@ -12,6 +12,11 @@ import Survey from "../Pages/Survey";
 
 
 class Main extends Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+
+
   render() {
     return (
       <Router>
@@ -26,14 +31,7 @@ class Main extends Component {
                 <SidebarContainer />{" "}
               </Col>
               <Col lg="10" className="home">
-                <Switch>
-               
-                  <Route exact path="/Survey" component={Survey} />
-                  <Route exact path="/Graph" component={Graph} />
-                  <Route exact path="/Faq" component={Faq} />
-                  <Route exact path="/Profile" component={Profile} />
-                  {/* <Route component={NoMatch} /> */}
-                </Switch>
+      
               </Col>
             </Row>
             <Row>

@@ -1,4 +1,12 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch,} from "react-router-dom";
+import SidebarContainer from "../Sidebar";
+import Footer from "../Footer";
+import Faq from "../Pages/Faq";
+import Graph from "../Pages/Graph";
+import Profile from "../Pages/Profile";
+import Survey from "../Pages/Survey";
+
 import "./NavTabs.css";
 import {
   Collapse,
@@ -28,6 +36,8 @@ export default class navbar extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  
   render() {
     return (
       <div className="strap-nav">
@@ -39,7 +49,7 @@ export default class navbar extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-
+     
               {/* -----Create new----- */}
             <NavItem>
                 <NavLink href="/survey/"><h2>Create New</h2></NavLink>
