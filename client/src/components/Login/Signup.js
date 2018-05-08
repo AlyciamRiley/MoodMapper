@@ -15,29 +15,23 @@ export default class Signup extends React.Component {
 handleSubmitForm = (event) => {
     this.preventDefault();  
    
-       
-
-    var xhr = function(){
-      return 
       axios ({
+        method: 'post',
         url:'/api/signup',
-        type: 'POST',
         data: {
           email: this.state.email,
           password: this.state.password
         },
-        beforeSend: function(){
-            this.setState({loading: true});
-        }.bind(this)
-       
+        // beforeSend: function(){
+        //     this.setState({loading: true});
+        // }.bind(this)
       })
-      console.log("this" , this);
-    } 
-    xhr.done = function(data){
-        this.refs.user_form.getDOMNode().reset();
-        this.setState = false;
-        //TODO: redirect to a route
-    }
+      console.log("THIS" , this);
+    // xhr.done = function(data){
+    //     this.refs.user_form.getDOMNode().reset();
+    //     this.setState = false;
+    //     //TODO: redirect to a route
+    // }
 }
 
   handleChange = (event) => {
@@ -49,14 +43,14 @@ handleSubmitForm = (event) => {
 
   render() {
     return (
-      <Form>
+      <Form onSubmit={() => this.handleSubmit}>
         <FormGroup>
-          <Label for="exampleEmail">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+          <Label for="signUpEmail">Email</Label>
+          <Input onChange={this.handleChange} type="email" name="email" id="signUpEmail" placeholder="with a placeholder" />
         </FormGroup>
         <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+          <Label for="SignUpPassword">Password</Label>
+          <Input onChange={this.handleChange} type="password" name="password" id="signUpPassword" placeholder="password placeholder" />
         </FormGroup>
         <Button id="submitSignup">Submit</Button>
       </Form>
