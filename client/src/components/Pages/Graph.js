@@ -1,6 +1,8 @@
 import React from "react";
 import { Chart } from 'react-google-charts';
 var axios = require("axios");
+import Moment from "moment";
+import Moment from "react-moment";
 
 // export default class Graph extends Component {
 //   constructor (props) {
@@ -33,52 +35,12 @@ var axios = require("axios");
 // }
 
 
-class Graph extends React.Component {
-  
-  GraphData(){   
-    axios.get('/api/graph')
-    // .then(response => console.log(response.data));
-    .then(res => {
-      const answers = res.data;
-      console.log(answers);
-      let anxiety = [];
-      let depression = [];
-      let concentration = [];
-      let energy = [];
-      let sleep = [];
-      let date = [];
+class Graph extends React.Component { 
 
-      answers.forEach(element => {
-        anxiety.push(element.anxiety);
-        depression.push(element.depression);
-        concentration.push(element.concentration);
-        energy.push(element.energy);
-        sleep.push(element.sleep);
-        date.push(element.createdAt);
-      });
-
-      console.log("Sleep", sleep);
-      console.log("Anxiety", anxiety);
-      console.log("Depression", depression);
-      console.log("Energy", energy);
-      console.log("Concentration", concentration);
-      console.log("Date", date);
-
-      // this.setState({
-      //   graphData: 
-      // })
-    })
-    //this does return all the db info to the state. but need to first loop thru it before setting state.
-    // .then(response => this.setState({graphData:response.data}));
-  
-  }
-
-
- 
 
   constructor(props) {
     super(props);
-    this.GraphData();
+    
     this.chartEvents = [
       {
         eventName: 'select',
@@ -97,16 +59,15 @@ class Graph extends React.Component {
         hAxis: { title: 'Date', minValue: new Date("2018-05-01"), maxValue: new Date('2018-05-07')},
         vAxis: { title: 'Mood Range',minValue: 0, maxValue: 10 },        
         legend: "right",
-        legendFontSize: 10,
-        graphData: []
+        legendFontSize: 10,       
       },
       rows: [
         // return graphData.map((item, i)=> )
         //[Date, AnswerValue]
-        [new Date('2018-05-02'), 1,2,4,4,2],
-        [new Date('2018-05-04'), 2,4,4,5,5],
-        [new Date('2018-05-05'), 3,5,1,2,3],
-        // [4, 2],
+        // [new Date('2018-05-02'), 1,2,4,4,2],
+        // [new Date('2018-05-04'), 2,4,4,5,5],
+        // [new Date('2018-05-05'), 3,5,1,2,3],
+        // // [4, 2],
         // [5, 5],
         // [6, 5],
       ],
@@ -140,8 +101,54 @@ class Graph extends React.Component {
       ],
     };
   }
+
+  GraphData(){   
+    axios.get('/api/graph')
+    // .then(response => console.log(response.data));
+    .then(res => {
+      const answers = res.data;
+      console.log(answers);
+      let anxiety = [];
+      let depression = [];
+      let concentration = [];
+      let energy = [];
+      let sleep = [];
+      let date = [];
+
+      answers.forEach(element => {
+        anxiety.push(element.anxiety);
+        depression.push(element.depression);
+        concentration.push(element.concentration);
+        energy.push(element.energy);
+        sleep.push(element.sleep);
+        date.push(element.createdAt);
+      });
+
+      console.log("Sleep", sleep);
+      console.log("Anxiety", anxiety);
+      console.log("Depression", depression);
+      console.log("Energy", energy);
+      console.log("Concentration", concentration);
+      console.log("Date", date);
+   this.setState({
+        rows:[anxiety, depression, concentration, energy, sleep] 
+      })
+   
+    })
+    //this does return all the db info to the state. but need to first loop thru it before setting state.
+    // .then(response => this.setState({graphData:response.data}));
+  
+  }
+
+componentDidMount() {  this.GraphData(); 
+
+}
+
   render() {
     return (
+      //conditional rendering. only render chart if rows array has data
+      <div>
+      {this.state.rows.length > 0 &&
       <Chart
         chartType="LineChart"
         rows={this.state.rows}
@@ -152,6 +159,8 @@ class Graph extends React.Component {
         height="400px"
         chartEvents={this.chartEvents}
       />
+      }
+      </div>
     );
   }
 }
