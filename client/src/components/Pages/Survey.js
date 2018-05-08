@@ -1,13 +1,11 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Container, Row, Col, Collapse, Button } from "reactstrap";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Container, Row, Col } from "reactstrap";
 import React, { Component } from "react";
 import update from "react-addons-update";
 import axios from "axios";
 import NavTabs from "../NavTabs";
 import SidebarContainer from "../Sidebar";
 import Footer from "../Footer";
-import Graph from "../Pages/Graph";
-import Profile from "../Pages/Profile";
 import quizQuestions from "../Survey/quizQuestions";
 import Quiz from "../Survey/Quiz";
 import Result from "../Survey/Result";

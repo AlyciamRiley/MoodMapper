@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import { Container, Row, Col, Collapse, Button } from "reactstrap";
 import NavTabs from "../NavTabs";
 import SidebarContainer from "../Sidebar";
 import Footer from "../Footer";
-import Graph from "../Pages/Graph";
-import Profile from "../Pages/Profile";
-import Survey from "../Pages/Survey";
 import "./PagesStyles/Faq.css";
 
 class Faq extends Component {
