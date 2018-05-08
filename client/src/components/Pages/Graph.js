@@ -29,26 +29,25 @@ class Graph extends Component {
         titleFontSize: 25,
         hAxis: {
           title: "Date",
-          minValue: new Date("2018-05-01"),
-          maxValue: new Date("2018-05-07")
+          minValue: new Date("05-01-2018"),
+          maxValue: new Date("05-07-2018")
         },
-        vAxis: { title: "Mood Range", minValue: 0, maxValue: 10 },
+        vAxis: { title: "Mood Range", minValue: 0, maxValue: 5 },
         legend: "right",
         legendFontSize: 10
       },
       rows: [
         // return graphData.map((item, i)=> )
-        //[Date, AnswerValue]
-        // [new Date('2018-05-02'), 1,2,4,4,2],
-        // [new Date('2018-05-04'), 2,4,4,5,5],
-        // [new Date('2018-05-05'), 3,5,1,2,3],
-        // // [4, 2],
-        // [5, 5],
-        // [6, 5],
+        //[Date, AnswerValues]
+        //dummy data in order to render graph
+        // [new Date('05-02-2018'), 1,2,4,4,2],
+        // [new Date('05-03-2018'), 2,4,4,5,5],
+        // [new Date('05-04-2018'), 1,5,1,2,3],
+        // [new Date('05-05-2018'), 3,4,1,2,3],
+        // [new Date('05-06-2018'), 2,5,1,2,3]
       ],
       columns: [
-        {
-          // format: 'YYYY-MM-DD',
+        {          
           type: "date",
           label: "Date"
         },
@@ -91,11 +90,6 @@ class Graph extends Component {
         let date = [];
         let formattedDate = [];
 
-        // console.log(formattedDate);
-
-        date.map(element => {
-          return Moment(element).format("DD MM YYYY");
-        });
 
         answers.forEach(element => {
           anxiety.push(element.anxiety);
@@ -105,16 +99,12 @@ class Graph extends Component {
           sleep.push(element.sleep);
           date.push(element.createdAt);
         });
-
-        // for (var i = 0; i < date.length; i++){
-        //   console.log("hi");
-        // }
-
+        //format the createdAt timestamp from mySQL using Moment.js
         date.forEach(element => {
-          console.log("hi");
-          const blah = Moment().format("DD MM YYYY");
-          formattedDate.push(blah);
-          console.log(blah);
+          // console.log("hi");
+          const dateItem = Moment(element).local().format("MM-DD-YYYY");
+          formattedDate.push(dateItem);
+          // console.log(dateItem);
         });
 
         console.log(formattedDate);
@@ -125,14 +115,32 @@ class Graph extends Component {
         console.log("Energy", energy);
         console.log("Concentration", concentration);
         console.log("Date", date);
-        this.setState({
-          rows: [anxiety, depression, concentration, energy, sleep]
-          //for loop through formattedDate and apply the new Date constructor
-        });
+        //need to loop through each array and push into a new row. map? 
+
+        let combinedArrays = [anxiety, depression, concentration, energy, sleep];
+        console.log(combinedArrays);
+
+        // for (var i = 0; i < anxiety.length; i ++){
+        //   const blah = anxiety[i];
+        //   this.state.rows.push(blah);
+        //   console.log(blah);
+          
+        // }
+        // console.log(this.state.rows);
+        
+        // this.setState({
+        //   rows: [formattedDate, anxiety, depression, concentration, energy, sleep]
+        //   //for loop through formattedDate and apply the new Date constructor
+        // });
       });
     //this does return all the db info to the state. but need to first loop thru it before setting state.
     // .then(response => this.setState({graphData:response.data}));
   }
+
+  // for (var i = 0; i < length; ++i) {
+  //   rows.push([bitcoinArr[i], new Date(dateArr2[i])]);
+  // }
+
 
   componentDidMount() {
     this.GraphData();
