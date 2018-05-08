@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
-import update from 'react-addons-update';
-import quizQuestions from '../Survey/quizQuestions';
-import Quiz from '../Survey/Quiz';
-import Result from '../Survey/Result';
-import '../../App.css';
+import { BrowserRouter as Router } from "react-router-dom";
+import { Container, Row, Col } from "reactstrap";
+import React, { Component } from "react";
+import update from "react-addons-update";
 import axios from "axios";
+import NavTabs from "../NavTabs";
+import SidebarContainer from "../Sidebar";
+import Footer from "../Footer";
+import quizQuestions from "../Survey/quizQuestions";
+import Quiz from "../Survey/Quiz";
+import Result from "../Survey/Result";
+import "../Survey/Survey.css";
 
-class App extends Component {
- 
-
+class Survey extends Component {
   constructor(props) {
     super(props);
-    
-    
+
     this.state = {
       counter: 0,
       questionId: 1,
-      question: '',
+      question: "",
       answerOptions: [],
-      answer: '',
+      answer: "",
       answersCount: {},
-      result: '',
-      finalAnswers: [],
+      result: "",
+      finalAnswers: []
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
   }
- 
 
   componentWillMount() {
-    
     this.setState({
       question: quizQuestions[0].question,
       answerOptions: quizQuestions[0].answers
@@ -37,33 +37,26 @@ class App extends Component {
   }
 
   handleAnswerSelected(event) {
-   
     this.setUserAnswer(event.currentTarget.value);
     const answer = event.currentTarget.value;
     const question = this.state.questionId;
- 
-    
 
     if (this.state.questionId < quizQuestions.length) {
-        setTimeout(() => this.setNextQuestion(), 300);
-  
+      setTimeout(() => this.setNextQuestion(), 300);
     } else {
-        setTimeout(() => this.setResults(this.getResults()), 300);
+      setTimeout(() => this.setResults(this.getResults()), 300);
     }
-   
   }
 
-  setUserAnswer(answer) {     
-
+  setUserAnswer(answer) {
     const updatedAnswersCount = update(this.state.answersCount, {
-      [answer]: {$apply: (currentValue) => currentValue + 1}
+      [answer]: { $apply: currentValue => currentValue + 1 }
     });
 
     this.setState({
-        answersCount: updatedAnswersCount,
-        answer: answer,
-        finalAnswers: [...this.state.finalAnswers, answer],
-        
+      answersCount: updatedAnswersCount,
+      answer: answer,
+      finalAnswers: [...this.state.finalAnswers, answer]
     });
   }
 
@@ -72,21 +65,21 @@ class App extends Component {
     const questionId = this.state.questionId + 1;
 
     this.setState({
-        counter: counter,
-        questionId: questionId,
-        question: quizQuestions[counter].question,
-        answerOptions: quizQuestions[counter].answers,
-        answer: ''
+      counter: counter,
+      questionId: questionId,
+      question: quizQuestions[counter].question,
+      answerOptions: quizQuestions[counter].answers,
+      answer: ""
     });
   }
 
   getResults() {
     const answersCount = this.state.answersCount;
     const answersCountKeys = Object.keys(answersCount);
-    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
+    const answersCountValues = answersCountKeys.map(key => answersCount[key]);
     const maxAnswerCount = Math.max.apply(null, answersCountValues);
 
-    return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+    return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
   }
 
   setResults(result) {
@@ -94,7 +87,7 @@ class App extends Component {
     if (result.length === 1) {
       this.setState({ result: result[0] });
     } else {
-      this.setState({ result: 'Undetermined' });
+      this.setState({ result: "Undetermined" });
     }
 
     const whatevs = {
@@ -105,11 +98,10 @@ class App extends Component {
       sleep: parseInt(this.state.finalAnswers[4])
     };
 
-
     axios({
-      method: 'post',
-      url: '/api/survey',
-      data : whatevs
+      method: "post",
+      url: "/api/survey",
+      data: whatevs
     });
   }
 
@@ -127,19 +119,38 @@ class App extends Component {
   }
 
   renderResult() {
-    return (
-      <Result quizResult={this.state.result} />
-    );
+    return <Result quizResult={this.state.result} />;
   }
 
   render() {
     return (
-      <div className="App">
-        {this.state.result ? this.renderResult() : this.renderQuiz()}
-      </div>
+      <Router>
+        <Container className="reactstrapContainer">
+          <Row>
+            <Col lg="12" className="NavTabs">
+              <NavTabs />
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="2" className="sidebar">
+              <SidebarContainer />{" "}
+            </Col>
+
+            <Col lg="10" className="home">
+              <div className="App">
+                {this.state.result ? this.renderResult() : this.renderQuiz()}
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="12" className="footer">
+              <Footer />
+            </Col>
+          </Row>
+        </Container>
+      </Router>
     );
   }
-
 }
 
-export default App;
+export default Survey;

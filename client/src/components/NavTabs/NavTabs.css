@@ -14,9 +14,8 @@ Lt. Gray: B4B4B4
 */
 
 .navbar {
-  border-bottom: 1px solid #8B8B8B;
+  border-bottom: 1px solid #8b8b8b;
 }
-
 
 .strap-nav {
   width: 100%;
@@ -24,7 +23,7 @@ Lt. Gray: B4B4B4
   float: left;
 }
 
-h2  {
+h2 {
   font-size: 1rem;
   letter-spacing: 0rem;
 }
@@ -43,5 +42,5 @@ h2  {
   margin-bottom: -1rem;
 }
 h2:hover {
-  color: #FF7993;
+  color: #ff7993;
 }

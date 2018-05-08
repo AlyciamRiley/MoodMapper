@@ -11,8 +11,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
-  
+  DropdownItem
+} from "reactstrap";
 
 export default class navbar extends React.Component {
   constructor(props) {
@@ -28,56 +28,62 @@ export default class navbar extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
       <div className="strap-nav">
         <Navbar color="white" light expand="sm">
-          
           <NavbarBrand href="/">
             <img src="/logo.PNG" alt="logo" className="logo" />
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-
               {/* -----Create new----- */}
-            <NavItem>
-                <NavLink href="/survey/"><h2>Create New</h2></NavLink>
+              <NavItem>
+                <NavLink href="/survey/">
+                  <h2>Create New</h2>
+                </NavLink>
               </NavItem>
 
-               {/* -----MoodHistory---- */}
+              {/* -----MoodHistory---- */}
 
-                <UncontrolledDropdown nav inNavbar>
+              <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav>
                   <h2>Mood History</h2>
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem>
-                  <NavLink href="/Graph/"><h2>View Graph</h2></NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                  <NavLink href="#"><h2>Edit Previous Entry</h2></NavLink>
+                    <NavLink href="/Graph/">
+                      <h2>View Graph</h2>
+                    </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
 
-               {/* -----FAQ----- */}
+              {/* -----FAQ----- */}
               <NavItem>
-                <NavLink href="/Faq/"><h2>FAQ</h2></NavLink>
+                <NavLink href="/Faq/">
+                  <h2>FAQ</h2>
+                </NavLink>
               </NavItem>
-              
+
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav>
                   <h2>Profile</h2>
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem>
-                  <NavItem>
-                <NavLink href="/Profile"><h2>Profile</h2></NavLink>
-              </NavItem>
+                    <NavItem>
+                      <NavLink href="/Profile">
+                        <h2>Profile</h2>
+                      </NavLink>
+                    </NavItem>
                   </DropdownItem>
                   <DropdownItem>
-                   <NavLink href="#"><h2>Logout</h2></NavLink>
+                    <NavLink href="#">
+                      <h2>Logout</h2>
+                    </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
