@@ -1,70 +1,57 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 
-export default class Signup extends React.Component {
-  constructor(props) {
-    super(props);
+export default class Signup extends Component {
+  constructor() {
+    super();
     this.state = {
-      email: "",
-      password: "",
-      loading: false
+      email: '',
+      password: '',
     };
   }
 
-  handleSubmitForm = event => {
-    this.preventDefault();
-
-    axios({
-      method: "post",
-      url: "/api/signup",
-      data: {
-        email: this.state.email,
-        password: this.state.password
-      }
-      // beforeSend: function(){
-      //     this.setState({loading: true});
-      // }.bind(this)
-    });
-    console.log("THIS", this);
-    // xhr.done = function(data){
-    //     this.refs.user_form.getDOMNode().reset();
-    //     this.setState = false;
-    //     //TODO: redirect to a route
-    // }
-  };
-
-  handleChange = event => {
-    var state = {};
-    state[event.target.name] = event.target.value;
+  onChange = (e) => {
+    const state = this.state
+    state[e.target.name] = e.target.value;
     this.setState(state);
-  };
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = this.state;
+
+    axios.post('/api/signup', { email, password })
+  }
 
   render() {
+    const { email, password } = this.state;
     return (
-      <Form onSubmit={() => this.handleSubmit}>
-        <FormGroup>
+      <form onSubmit={this.onSubmit}>
+      <FormGroup>
           <Label for="signUpEmail">Email</Label>
           <Input
-            onChange={this.handleChange}
-            type="email"
+            onChange={this.onChange}
+            type="text"
             name="email"
+            value={email}
             id="signUpEmail"
-            placeholder="with a placeholder"
+            placeholder="Your Email Address"
           />
         </FormGroup>
         <FormGroup>
           <Label for="SignUpPassword">Password</Label>
           <Input
-            onChange={this.handleChange}
-            type="password"
+            onChange={this.onChange}
+            type="text"
             name="password"
+            value={password}
             id="signUpPassword"
-            placeholder="password placeholder"
+            placeholder="Your Password"
           />
         </FormGroup>
-        <Button id="submitSignup">Submit</Button>
-      </Form>
+        <Button type="submit" id="submitSignup">Submit</Button>
+      </form>
     );
   }
 }
