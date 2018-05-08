@@ -25,7 +25,7 @@ app.post("/api/signup", function (req, res) {
         password: req.body.password
     }).then(function(data) {
         res.json(data);
-        res.redirect(307, "/api/signup");
+        res.redirect("/Main");
     }).catch(function(err) {
         console.log(err);
         res.json(err);
