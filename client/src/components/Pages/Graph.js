@@ -1,7 +1,8 @@
 import React,{Component} from "react";
 import { Chart } from 'react-google-charts';
+import Moment from "moment";
 var axios = require("axios");
-// import Moment from "moment";
+
 // import Moment from "react-moment";
 
 // export default class Graph extends Component {
@@ -114,6 +115,15 @@ class Graph extends React.Component {
       let energy = [];
       let sleep = [];
       let date = [];
+      let formattedDate = [];
+
+
+    
+      // console.log(formattedDate);
+
+      date.map(element => {
+        return Moment(element).format("DD MM YYYY");
+      })
 
       answers.forEach(element => {
         anxiety.push(element.anxiety);
@@ -124,6 +134,21 @@ class Graph extends React.Component {
         date.push(element.createdAt);
       });
 
+      // for (var i = 0; i < date.length; i++){
+      //   console.log("hi");
+      // }
+
+      date.forEach(element => {
+        console.log("hi");
+       const blah = Moment().format("DD MM YYYY");
+       formattedDate.push(blah);
+       console.log(blah);
+        
+      })
+
+      console.log(formattedDate);
+
+
       console.log("Sleep", sleep);
       console.log("Anxiety", anxiety);
       console.log("Depression", depression);
@@ -132,6 +157,7 @@ class Graph extends React.Component {
       console.log("Date", date);
    this.setState({
         rows:[anxiety, depression, concentration, energy, sleep] 
+        //for loop through formattedDate and apply the new Date constructor
       })
    
     })
