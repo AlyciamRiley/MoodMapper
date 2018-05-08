@@ -7,7 +7,6 @@ import AnswerOption from './AnswerOption';
 import "./Survey.css";
 
 function Quiz(props) {
-  console.log(props);
 
   function renderAnswerOptions(key) {
     return (

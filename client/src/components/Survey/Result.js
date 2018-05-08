@@ -3,7 +3,6 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 function Result(props) {
-  console.log("QUIZ RESULT", props);
 
   return (
     <ReactCSSTransitionGroup
