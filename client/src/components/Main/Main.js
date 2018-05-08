@@ -12,11 +12,6 @@ import Survey from "../Pages/Survey";
 
 
 class Main extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
-
   render() {
     return (
       <Router>

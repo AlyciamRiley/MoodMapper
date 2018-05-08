@@ -23,6 +23,7 @@ class App extends Component {
                 <Route exact path="/Main" component={Main} />
                   <Route exact path="/Survey" component={Survey} />
                   <Route exact path="/Graph" component={Graph} />
+            
                   <Route exact path="/Faq" component={Faq} />
                   <Route exact path="/Profile" component={Profile} />
                   {/* <Route component={NoMatch} /> */}

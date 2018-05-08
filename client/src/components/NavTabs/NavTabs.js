@@ -65,9 +65,6 @@ export default class navbar extends React.Component {
                   <DropdownItem>
                   <NavLink href="/Graph/"><h2>View Graph</h2></NavLink>
                   </DropdownItem>
-                  <DropdownItem>
-                  <NavLink href="#"><h2>Edit Previous Entry</h2></NavLink>
-                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
 

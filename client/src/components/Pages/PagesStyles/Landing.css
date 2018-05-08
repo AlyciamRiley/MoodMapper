@@ -16,8 +16,14 @@ Lt. Gray: B4B4B4
 
 body {
     width: 960px;
-    /* background-image: url("logoredo.png"); */
     background-color: rgb(255, 255, 255);
+}
+
+
+.landing-container {
+    background-image: url("logoredo.png");
+    margin-top: 2rem;
+    padding-bottom: 10rem;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: left center;

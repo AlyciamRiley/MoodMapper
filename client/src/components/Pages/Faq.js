@@ -33,6 +33,7 @@ class Faq extends Component {
             <Col lg="2" className="sidebar">
               <SidebarContainer />{" "}
             </Col>
+            
             <Col lg="10" className="home">
               <Button
                 color="link"
