@@ -45,7 +45,8 @@ app.use(passport.session());
 // parse application/x-www-form-urlencoded
 
 
-require("./routes")(app);
+require("./routes/api-routes")(app);
+require("./routes/user-routes")(app);
 
 // listen on port 8000
 // const PORT = process.env.PORT || 3306;

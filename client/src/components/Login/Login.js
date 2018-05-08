@@ -20,7 +20,7 @@ handleSubmitForm = (event) => {
        
 
     var xhr = function(){
-      return 
+      // return 
       axios ({
         url:'/api/login',
         type: 'POST',
@@ -32,7 +32,7 @@ handleSubmitForm = (event) => {
             this.setState({loading: true});
         }.bind(this)
       })
-    } 
+    }  
     xhr.done = function(data){
         this.refs.user_form.getDOMNode().reset();
         this.setState = false;
@@ -50,12 +50,12 @@ handleSubmitForm = (event) => {
     return (
       <Form action="/api/login" method="post">
       <FormGroup>
-        <Label for="exampleEmail">Email</Label>
-        <Input key="emailKey" type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+        <Label for="loginEmail">Email</Label>
+        <Input key="emailKey" type="email" name="email" id="loginEmail" placeholder="with a placeholder" />
       </FormGroup>
       <FormGroup>
-        <Label for="examplePassword">Password</Label>
-        <Input key="passwordKey"type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+        <Label for="loginPassword">Password</Label>
+        <Input key="passwordKey"type="password" name="password" id="loginPassword" placeholder="password placeholder" />
       </FormGroup>
       <Button type="submit">Submit</Button>
     </Form>
