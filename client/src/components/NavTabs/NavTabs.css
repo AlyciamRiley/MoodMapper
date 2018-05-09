@@ -23,7 +23,7 @@ Lt. Gray: B4B4B4
   float: left;
 }
 
-h2 {
+h4 {
   font-size: 1rem;
   letter-spacing: 0rem;
 
@@ -44,7 +44,7 @@ h2 {
   
 }
 
-h2:hover {
+h4:hover {
   color: #ff7993;
   
 }

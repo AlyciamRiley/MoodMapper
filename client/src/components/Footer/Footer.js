@@ -4,8 +4,7 @@ import "./Footer.css";
 const Footer = () => (
   <div className="footer">
     <h2 className="disclaimer">
-      Disclaimer: This app is not encrypted and we cannot guarantee that your
-      information will remain private.
+      CONTRIBUTORS: Rob Castellano | Ben Cross | Chelsey McKinney | Alycia Riley | Elizabeth Risch-Janson 
     </h2>
   </div>
 );
