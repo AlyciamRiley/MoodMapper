@@ -26,6 +26,7 @@ Lt. Gray: B4B4B4
 h2 {
   font-size: 1rem;
   letter-spacing: 0rem;
+
 }
 
 .ml-auto {
@@ -40,7 +41,10 @@ h2 {
 
 .nav-link {
   margin-bottom: -1rem;
+  
 }
+
 h2:hover {
   color: #ff7993;
+  
 }

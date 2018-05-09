@@ -27,8 +27,8 @@ Lt. Gray: B4B4B4
     border-bottom: 0;
 }
 
-.btn {
-    background-color: #FF9754; /* Green */
+.btn-secondary {
+    background-color: #FF9754; 
     border: none;
     color: white;
     padding-top: .5rem;
@@ -38,4 +38,4 @@ Lt. Gray: B4B4B4
     display: inline-block;
     font-size: 16px;
 
-}
+} 

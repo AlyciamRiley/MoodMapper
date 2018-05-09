@@ -4,6 +4,8 @@ import { Container, Row, Col } from "reactstrap";
 import NavTabs from "../NavTabs";
 import SidebarContainer from "../Sidebar";
 import Footer from "../Footer";
+import pic from "./pic.PNG";
+import "./PagesStyles/Profile.css";
 
 class Profile extends Component {
   render() {
@@ -22,8 +24,11 @@ class Profile extends Component {
 
             <Col lg="10" className="home">
               <div>
-                <h1>About You</h1>
-                <p>
+            
+                <h2>Howard Johnson</h2>
+                <img src={pic} alt={"profilepic"} className="profile-pic" /> 
+                <p className="about-me">
+                 
                   I just started using this app last week. My hope is that it
                   will help me become more aware of my ups and downs as I see my
                   moods graphed over time. When I meet with my therapist, I
