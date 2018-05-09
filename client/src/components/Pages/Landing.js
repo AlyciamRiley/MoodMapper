@@ -18,7 +18,9 @@ class Landing extends Component {
             <Col lg="4" className="login-container">
               <Forms />
 
-            
+              <NavLink to="/Main">
+                This will take you to the main page for dev purposes.
+              </NavLink>
             </Col>
           </Row>
         </div>
