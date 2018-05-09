@@ -30,7 +30,7 @@ export default class Login extends Component {
     const { email, password } = this.state;
     return (
       
-      <form onSubmit={this.onSubmit}>
+      <Form onSubmit={this.onSubmit}>
       <FormGroup className="email-header">
           <Label for="loginEmail" className="form-header">Email</Label>
           <Input
@@ -56,7 +56,7 @@ export default class Login extends Component {
           />
         </FormGroup>
         <Button type="submit" id="submitLogin">Submit</Button>
-      </form>
+      </Form>
     );
   }
 }

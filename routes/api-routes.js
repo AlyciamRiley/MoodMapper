@@ -4,7 +4,11 @@ var axios = require("axios");
 module.exports = function(app){
     //routes go here
     app.get("/api/graph", function(req, res){
-        db.Mood.findAll({}).then(function(data){
+        db.Mood.findAll({
+            order: [
+                ['createdAt', 'ASC'],
+            ],
+        }).then(function(data){
             return res.json(data);
         });
     });

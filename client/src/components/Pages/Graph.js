@@ -80,8 +80,9 @@ class Graph extends Component {
       .get("/api/graph")
       // .then(response => console.log(response.data));
       .then(res => {
+        console.log(res.data);
         const answers = res.data;
-        console.log(answers);
+        // console.log(answers);
         let anxiety = [];
         let depression = [];
         let concentration = [];
