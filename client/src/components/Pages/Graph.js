@@ -80,46 +80,56 @@ class Graph extends Component {
       .get("/api/graph")
       // .then(response => console.log(response.data));
       .then(res => {
-        console.log(res.data);
-        const answers = res.data;
+const answers = res.data;
+console.log(answers);
+        var butt = [];
+        for (var i = 0; i < answers.length; i++){
+          console.log("hellllo");
+          butt[i] = [answers[i].anxiety, answers[i].depression, answers[i].concentration, answers[i].energy, answers[i].sleep];
+          // var a =[answers[i].anxiety, answers[i].depression, answers.concentration[i], answers.energy[i], answers[i].sleep];
+          
+        }
+        
+        
+        // const answers = res.data;
         // console.log(answers);
-        let anxiety = [];
-        let depression = [];
-        let concentration = [];
-        let energy = [];
-        let sleep = [];
-        let date = [];
-        let formattedDate = [];
+        // let anxiety = [];
+        // let depression = [];
+        // let concentration = [];
+        // let energy = [];
+        // let sleep = [];
+        // let date = [];
+        // let formattedDate = [];
 
 
-        answers.forEach(element => {
-          anxiety.push(element.anxiety);
-          depression.push(element.depression);
-          concentration.push(element.concentration);
-          energy.push(element.energy);
-          sleep.push(element.sleep);
-          date.push(element.createdAt);
-        });
-        //format the createdAt timestamp from mySQL using Moment.js
-        date.forEach(element => {
-          // console.log("hi");
-          const dateItem = Moment(element).local().format("MM-DD-YYYY");
-          formattedDate.push(dateItem);
-          // console.log(dateItem);
-        });
+        // answers.forEach(element => {
+        //   anxiety.push(element.anxiety);
+        //   depression.push(element.depression);
+        //   concentration.push(element.concentration);
+        //   energy.push(element.energy);
+        //   sleep.push(element.sleep);
+        //   date.push(element.createdAt);
+        // });
+        // //format the createdAt timestamp from mySQL using Moment.js
+        // date.forEach(element => {
+        //   // console.log("hi");
+        //   const dateItem = Moment(element).local().format("MM-DD-YYYY");
+        //   formattedDate.push(dateItem);
+        //   // console.log(dateItem);
+        // });
 
-        console.log(formattedDate);
+        // console.log(formattedDate);
 
-        console.log("Sleep", sleep);
-        console.log("Anxiety", anxiety);
-        console.log("Depression", depression);
-        console.log("Energy", energy);
-        console.log("Concentration", concentration);
-        console.log("Date", date);
-        //need to loop through each array and push into a new row. map? 
+        // console.log("Sleep", sleep);
+        // console.log("Anxiety", anxiety);
+        // console.log("Depression", depression);
+        // console.log("Energy", energy);
+        // console.log("Concentration", concentration);
+        // console.log("Date", date);
+        // //need to loop through each array and push into a new row. map? 
 
-        let combinedArrays = [anxiety, depression, concentration, energy, sleep];
-        console.log(combinedArrays);
+        // let combinedArrays = [anxiety, depression, concentration, energy, sleep];
+        // console.log(combinedArrays);
 
         // for (var i = 0; i < anxiety.length; i ++){
         //   const blah = anxiety[i];
@@ -129,10 +139,10 @@ class Graph extends Component {
         // }
         // console.log(this.state.rows);
         
-        // this.setState({
-        //   rows: [formattedDate, anxiety, depression, concentration, energy, sleep]
-        //   //for loop through formattedDate and apply the new Date constructor
-        // });
+        this.setState({
+          rows: [butt]
+          //for loop through formattedDate and apply the new Date constructor
+        });
       });
     //this does return all the db info to the state. but need to first loop thru it before setting state.
     // .then(response => this.setState({graphData:response.data}));
