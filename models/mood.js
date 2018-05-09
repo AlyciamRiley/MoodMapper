@@ -1,6 +1,10 @@
 module.exports =  function(sequelize, DataTypes){
     var Mood = sequelize.define("Mood", {
 
+        createdAt: {
+            type: DataTypes.DATE(3),
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+          },
         anxiety: {
             type: DataTypes.INTEGER,
             allowNull: false,        
@@ -20,12 +24,11 @@ module.exports =  function(sequelize, DataTypes){
         sleep: {
             type: DataTypes.INTEGER,
             allowNull: false,        
-        },
-        // myDate: {
-        //     type: DataTypes.DATE,
-        //     allowNull: false,
-        //     defaultValue: Sequelize.NOW
-        // }    
+        },  
+    }, {
+        timestamps: false,
+        createdAt: true,
+        updatedAt: false,
     });
 
     // Mood.associate = function(models){
