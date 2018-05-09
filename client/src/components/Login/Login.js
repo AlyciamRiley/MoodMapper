@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
+import "./Forms.css";
 
 export default class Login extends Component {
   constructor() {
@@ -28,9 +29,10 @@ export default class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
+      
       <form onSubmit={this.onSubmit}>
-      <FormGroup>
-          <Label for="loginEmail">Email</Label>
+      <FormGroup className="email-header">
+          <Label for="loginEmail" className="form-header">Email</Label>
           <Input
             onChange={this.onChange}
             type="text"
@@ -42,7 +44,7 @@ export default class Login extends Component {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="loginPassword">Password</Label>
+          <Label for="loginPassword" className="form-header">Password</Label>
           <Input
             onChange={this.onChange}
             type="text"

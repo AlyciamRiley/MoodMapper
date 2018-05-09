@@ -11,6 +11,7 @@ import {
 import classnames from "classnames";
 import Login from "./Login";
 import Signup from "./Signup";
+import "./Forms.css";
 
 export default class Forms extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export default class Forms extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div container="form-container">
         <Nav tabs>
           <NavItem>
             <NavLink
