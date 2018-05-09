@@ -1,0 +1,41 @@
+/* Colors:
+
+Green: #B9BC28
+Orange: #FF9754
+Pink: #FE778B
+Lt. Green: #ECE37C
+Lt. Orange: #FBC734
+Coral: #FF7993
+Bright Pink: #EC6199
+Dark Gray: #8B8B8B
+Lt. Gray: B4B4B4
+
+
+*/
+
+
+.form-header {
+    font-size: 16px;
+    /* padding-top: 2rem; */
+} 
+
+.email-header {
+    padding-top: 1rem;
+}
+
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.btn {
+    background-color: #FF9754; /* Green */
+    border: none;
+    color: white;
+    padding-top: .5rem;
+    margin-left: 14rem;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+}

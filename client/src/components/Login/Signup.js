@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
+import "./Forms.css";
+
 
 export default class Signup extends Component {
   constructor() {
@@ -29,8 +31,8 @@ export default class Signup extends Component {
     const { email, password } = this.state;
     return (
       <form onSubmit={this.onSubmit}>
-      <FormGroup>
-          <Label for="signUpEmail">Email</Label>
+      <FormGroup className="email-header">
+          <Label for="signUpEmail" className="form-header">Email</Label>
           <Input
             onChange={this.onChange}
             type="text"
@@ -41,7 +43,7 @@ export default class Signup extends Component {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="SignUpPassword">Password</Label>
+          <Label for="SignUpPassword" className="form-header">Password</Label>
           <Input
             onChange={this.onChange}
             type="text"
