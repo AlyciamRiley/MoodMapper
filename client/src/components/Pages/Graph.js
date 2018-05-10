@@ -29,8 +29,8 @@ class Graph extends Component {
         titleFontSize: 25,
         hAxis: {
           title: "Date",
-          minValue: new Date("05-01-2018"),
-          maxValue: new Date("05-07-2018")
+          minValue: new Date("05-04-2018"),
+          maxValue: new Date("05-10-2018")
         },
         vAxis: { title: "Mood Range", minValue: 0, maxValue: 5 },
         legend: "right",
