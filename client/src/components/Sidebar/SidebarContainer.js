@@ -10,8 +10,10 @@ class SidebarContainer extends Component {
       .get(
         "https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?"
       )
-      .then(response => self.setState({ data: response.data }),
-    );
+      .then(response => {
+        console.log(response.data);
+        return self.setState({ data: response.data })}
+    )
   }
 
   render() {
@@ -19,7 +21,9 @@ class SidebarContainer extends Component {
       <div>
         <h1> </h1>
         {this.state &&
-          this.state.data && (
+          this.state.data && 
+          this.state.data.quoteAuthor &&
+          (
             <div>
               <Sidebar
                 quoteText={this.state.data.quoteText}

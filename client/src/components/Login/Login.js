@@ -48,7 +48,7 @@ export default class Login extends Component {
           <Label for="loginPassword" className="form-header">Password</Label>
           <Input
             onChange={this.onChange}
-            type="text"
+            type="password"
             key="passwordKey"
             name="password"
             value={password}
