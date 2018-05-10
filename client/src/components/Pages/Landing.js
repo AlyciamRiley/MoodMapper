@@ -6,6 +6,7 @@ import Forms from "../../components/Login/Forms";
 // import Main from "../Main";
 import "../../UserRoutes/html-routes.js";
 import "./PagesStyles/Landing.css";
+import "./PagesStyles/mobile.css";
 
 class Landing extends Component {
   render() {
@@ -14,13 +15,8 @@ class Landing extends Component {
         <div className="landing-container">
           <Row>
             <Col lg="8" className="blank-area" />
-
-            <Col lg="4" className="login-container">
+               <Col lg="4" className="login-container">
               <Forms />
-
-              <NavLink to="/Main">
-                This will take you to the main page for dev purposes.
-              </NavLink>
             </Col>
           </Row>
         </div>
