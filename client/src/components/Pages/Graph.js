@@ -37,8 +37,8 @@ class Graph extends Component {
         legendFontSize: 10
       },
       rows: [
-        // return graphData.map((item, i)=> )
-        //[Date, AnswerValues]
+       
+       
         //dummy data in order to render graph
         // [new Date('05-02-2018'), 1,2,4,4,2],
         // [new Date('05-03-2018'), 2,4,4,5,5],
@@ -85,7 +85,8 @@ console.log(answers);
         var butt = [];
         for (var i = 0; i < answers.length; i++){
           console.log("hellllo");
-          butt[i] = [answers[i].anxiety, answers[i].depression, answers[i].concentration, answers[i].energy, answers[i].sleep];
+          // butt[i] = [Moment(answers[i].createdAt).format("MM-DD-YYYY"), answers[i].anxiety, answers[i].depression, answers[i].concentration, answers[i].energy, answers[i].sleep];
+          butt[i] = [new Date(answers[i].createdAt), answers[i].anxiety, answers[i].depression, answers[i].concentration, answers[i].energy, answers[i].sleep];
           // var a =[answers[i].anxiety, answers[i].depression, answers.concentration[i], answers.energy[i], answers[i].sleep];
           
         }
@@ -153,8 +154,12 @@ console.log(answers);
   // }
 
 
-  componentDidMount() {
+  componentWillUpdate() {
     this.GraphData();
+  }
+
+  componentWillMount() {
+    
   }
 
   render() {
