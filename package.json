@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon server.js",
-    "client": "cd client && yarn start",
+    "client": "cd client && yarn install && yarn start",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -27,6 +27,7 @@
     "express-session": "^1.15.6",
     "jquery": "^3.3.1",
     "mysql2": "^1.5.3",
+    "nodemon": "^1.17.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
