@@ -9,12 +9,34 @@ import "./PagesStyles/Faq.css";
 class Faq extends Component {
   constructor(props) {
     super(props);
+
     this.toggle = this.toggle.bind(this);
     this.state = { collapse: false };
+
+    this.toggle2 = this.toggle2.bind(this);
+    this.state = { collapse2: false };
+
+    this.toggle3 = this.toggle3.bind(this);
+    this.state = { collapse3: false };
+
+    this.toggle4 = this.toggle4.bind(this);
+    this.state = { collapse4: false };
   }
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
+  }
+
+  toggle2() {
+    this.setState({ collapse2: !this.state.collapse2 });
+  }
+
+  toggle3() {
+    this.setState({ collapse3: !this.state.collapse3 });
+  }
+
+  toggle4() {
+    this.setState({ collapse4: !this.state.collapse4 });
   }
 
   render() {
@@ -53,13 +75,13 @@ class Faq extends Component {
               <Button
                 color="link"
                 className="btn"
-                onClick={this.toggle}
+                onClick={this.toggle2}
                 style={{ marginBottom: "1rem" }}
               >
                 <i class="fas fa-angle-double-right" />{" "}
                 <span className="header"> How does this work?</span>{" "}
               </Button>
-              <Collapse isOpen={this.state.collapse}>
+              <Collapse isOpen={this.state.collapse2}>
                 <p className="answer">
                   Every day you can log in and take a short survey that will
                   measure your feelings. You can also make journal entries. The
@@ -73,7 +95,7 @@ class Faq extends Component {
               <Button
                 color="link"
                 className="btn"
-                onClick={this.toggle}
+                onClick={this.toggle3}
                 style={{ marginBottom: "1rem" }}
               >
                 <i class="fas fa-angle-double-right" />{" "}
@@ -82,7 +104,7 @@ class Faq extends Component {
                   Does this replace seeing a mental health professional?
                 </span>{" "}
               </Button>
-              <Collapse isOpen={this.state.collapse}>
+              <Collapse isOpen={this.state.collapse3}>
                 <p className="answer">
                   No. This is a tool you may choose to use with your therapist,
                   but it is not intended to supplement professional mental
@@ -94,7 +116,7 @@ class Faq extends Component {
               <Button
                 color="link"
                 className="btn"
-                onClick={this.toggle}
+                onClick={this.toggle4}
                 style={{ marginBottom: "1rem" }}
               >
                 <i class="fas fa-angle-double-right" />{" "}
@@ -103,7 +125,7 @@ class Faq extends Component {
                   Why don't I see my specific diagnosis on here?
                 </span>{" "}
               </Button>
-              <Collapse isOpen={this.state.collapse}>
+              <Collapse isOpen={this.state.collapse4}>
                 <p className="answer">
                   We chose to focus on anxiety and depression because they are
                   the most commonly diagnosed mood disorders.
