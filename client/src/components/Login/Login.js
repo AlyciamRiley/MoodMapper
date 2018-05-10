@@ -24,7 +24,7 @@ export default class Login extends Component {
     const { email, password } = this.state;
 
     axios.post('/api/login', { email, password });
-    window.location = '/Profile';
+    window.location = '/Main';
   }
 
   render() {
