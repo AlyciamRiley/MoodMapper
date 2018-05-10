@@ -23,143 +23,81 @@ class Graph extends Component {
       }
     ];
 
-    this.state = {
-      options: {
-        title: "My Moods",
-        titleFontSize: 25,
-        hAxis: {
-          title: "Date",
-          minValue: new Date("05-01-2018"),
-          maxValue: new Date("05-07-2018")
-        },
-        vAxis: { title: "Mood Range", minValue: 0, maxValue: 5 },
-        legend: "right",
-        legendFontSize: 10
-      },
-      rows: [
-       
-       
-        //dummy data in order to render graph
-        // [new Date('05-02-2018'), 1,2,4,4,2],
-        // [new Date('05-03-2018'), 2,4,4,5,5],
-        // [new Date('05-04-2018'), 1,5,1,2,3],
-        // [new Date('05-05-2018'), 3,4,1,2,3],
-        // [new Date('05-06-2018'), 2,5,1,2,3]
-      ],
-      columns: [
-        {          
-          type: "date",
-          label: "Date"
-        },
-        {
-          type: "number",
-          label: "Anxiety"
-        },
-        {
-          type: "number",
-          label: "Depression"
-        },
-        {
-          type: "number",
-          label: "Concentration"
-        },
-        {
-          type: "number",
-          label: "Energy"
-        },
-        {
-          type: "number",
-          label: "Sleep"
-        }
-      ]
-    };
   }
+
+
+  state = {
+    options: {
+      title: "My Moods",
+      titleFontSize: 25,
+      hAxis: {
+        title: "Date",
+        minValue: new Date("05-01-2018"),
+        maxValue: new Date("05-09-2018")
+      },
+      vAxis: { title: "Mood Range", minValue: 0, maxValue: 5 },
+      legend: "right",
+      legendFontSize: 10
+    },
+    rows: [
+         //dummy data in order to render graph
+      // [new Date('05-02-2018'), 1,2,4,4,2],
+      // [new Date('05-03-2018'), 2,4,4,5,5],
+      // [new Date('05-04-2018'), 1,5,1,2,3],
+      // [new Date('05-05-2018'), 3,4,1,2,3],
+      // [new Date('05-06-2018'), 2,5,1,2,3]
+    ],
+    columns: [
+      {          
+        type: "date",
+        label: "Date"
+      },
+      {
+        type: "number",
+        label: "Anxiety"
+      },
+      {
+        type: "number",
+        label: "Depression"
+      },
+      {
+        type: "number",
+        label: "Concentration"
+      },
+      {
+        type: "number",
+        label: "Energy"
+      },
+      {
+        type: "number",
+        label: "Sleep"
+      }
+    ]
+  };
 
   GraphData() {
     axios
-      .get("/api/graph")
-      // .then(response => console.log(response.data));
+      .get("/api/graph")      
       .then(res => {
 const answers = res.data;
 console.log(answers);
-        var butt = [];
-        for (var i = 0; i < answers.length; i++){
-          console.log("hellllo");
-          // butt[i] = [Moment(answers[i].createdAt).format("MM-DD-YYYY"), answers[i].anxiety, answers[i].depression, answers[i].concentration, answers[i].energy, answers[i].sleep];
-          butt[i] = [new Date(answers[i].createdAt), answers[i].anxiety, answers[i].depression, answers[i].concentration, answers[i].energy, answers[i].sleep];
-          // var a =[answers[i].anxiety, answers[i].depression, answers.concentration[i], answers.energy[i], answers[i].sleep];
+        var data = [];
+        for (var i = 0; i < answers.length; i++){               
+          data[i] = [new Date(answers[i].createdAt), answers[i].anxiety, answers[i].depression, answers[i].concentration, answers[i].energy, answers[i].sleep];        
           
         }
-        
-        
-        // const answers = res.data;
-        // console.log(answers);
-        // let anxiety = [];
-        // let depression = [];
-        // let concentration = [];
-        // let energy = [];
-        // let sleep = [];
-        // let date = [];
-        // let formattedDate = [];
 
-
-        // answers.forEach(element => {
-        //   anxiety.push(element.anxiety);
-        //   depression.push(element.depression);
-        //   concentration.push(element.concentration);
-        //   energy.push(element.energy);
-        //   sleep.push(element.sleep);
-        //   date.push(element.createdAt);
-        // });
-        // //format the createdAt timestamp from mySQL using Moment.js
-        // date.forEach(element => {
-        //   // console.log("hi");
-        //   const dateItem = Moment(element).local().format("MM-DD-YYYY");
-        //   formattedDate.push(dateItem);
-        //   // console.log(dateItem);
-        // });
-
-        // console.log(formattedDate);
-
-        // console.log("Sleep", sleep);
-        // console.log("Anxiety", anxiety);
-        // console.log("Depression", depression);
-        // console.log("Energy", energy);
-        // console.log("Concentration", concentration);
-        // console.log("Date", date);
-        // //need to loop through each array and push into a new row. map? 
-
-        // let combinedArrays = [anxiety, depression, concentration, energy, sleep];
-        // console.log(combinedArrays);
-
-        // for (var i = 0; i < anxiety.length; i ++){
-        //   const blah = anxiety[i];
-        //   this.state.rows.push(blah);
-        //   console.log(blah);
-          
-        // }
-        // console.log(this.state.rows);
-        
+        console.log("data", data);
+                       
         this.setState({
-          rows: [butt]
-          //for loop through formattedDate and apply the new Date constructor
+          rows: data         
         });
       });
-    //this does return all the db info to the state. but need to first loop thru it before setting state.
-    // .then(response => this.setState({graphData:response.data}));
+   
   }
 
-  // for (var i = 0; i < length; ++i) {
-  //   rows.push([bitcoinArr[i], new Date(dateArr2[i])]);
-  // }
-
-
-  componentWillUpdate() {
+  componentDidMount() {
     this.GraphData();
-  }
-
-  componentWillMount() {
-    
   }
 
   render() {
