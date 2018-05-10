@@ -16,6 +16,9 @@ import NavTabs from "../NavTabs";
 import SidebarContainer from "../Sidebar";
 import Footer from "../Footer";
 import "./Main.css"
+import '../Pages/PagesStyles/mobile.css';
+
+
 class Main extends Component {
   render() {
     return (
