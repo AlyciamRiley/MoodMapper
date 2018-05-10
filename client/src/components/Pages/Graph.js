@@ -23,6 +23,58 @@ class Graph extends Component {
       }
     ];
 
+
+    this.state = {
+      options: {
+        title: "My Moods",
+        titleFontSize: 25,
+        hAxis: {
+          title: "Date",
+          minValue: new Date("05-04-2018"),
+          maxValue: new Date("05-10-2018")
+        },
+        vAxis: { title: "Mood Range", minValue: 0, maxValue: 5 },
+        legend: "right",
+        legendFontSize: 10
+      },
+      rows: [
+       
+       
+        //dummy data in order to render graph
+        // [new Date('05-02-2018'), 1,2,4,4,2],
+        // [new Date('05-03-2018'), 2,4,4,5,5],
+        // [new Date('05-04-2018'), 1,5,1,2,3],
+        // [new Date('05-05-2018'), 3,4,1,2,3],
+        // [new Date('05-06-2018'), 2,5,1,2,3]
+      ],
+      columns: [
+        {          
+          type: "date",
+          label: "Date"
+        },
+        {
+          type: "number",
+          label: "Anxiety"
+        },
+        {
+          type: "number",
+          label: "Depression"
+        },
+        {
+          type: "number",
+          label: "Concentration"
+        },
+        {
+          type: "number",
+          label: "Energy"
+        },
+        {
+          type: "number",
+          label: "Sleep"
+        }
+      ]
+    };
+
   }
 
 

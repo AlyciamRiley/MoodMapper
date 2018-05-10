@@ -15,9 +15,8 @@ import {
 import NavTabs from "../NavTabs";
 import SidebarContainer from "../Sidebar";
 import Footer from "../Footer";
-import "./Main.css"
-import '../Pages/PagesStyles/mobile.css';
-
+import "./Main.css";
+import "../Pages/PagesStyles/mobile.css";
 
 class Main extends Component {
   render() {
@@ -37,41 +36,29 @@ class Main extends Component {
             <Col lg="10" className="home">
               <div>
                 <Row className="info-card-container">
-                  <Col lg="4">
+                  <Col lg="6">
                     <Card>
-                      <CardHeader className="card-header">Header</CardHeader>
+                      <CardHeader className="card-header">
+                        Individual
+                      </CardHeader>
                       <CardBody>
-                        <CardTitle>Special Title Treatment</CardTitle>
                         <CardText>
-                          With supporting text below as a natural lead-in to
-                          additional content.
+                          Track your moods overtime to monitor patterns that
+                          contribute to fluctuations in anxiety and depresstion.
                         </CardText>
                       </CardBody>
                     </Card>
                   </Col>
 
-                  <Col lg="4">
+                  <Col lg="6">
                     <Card>
-                      <CardHeader className="card-header">Header</CardHeader>
+                      <CardHeader className="card-header">Clinical</CardHeader>
                       <CardBody>
-                        <CardTitle>Special Title Treatment</CardTitle>
-                        <CardText>
-                          With supporting text below as a natural lead-in to
-                          additional content.
-                        </CardText>
-                      </CardBody>
-                    </Card>
-                  </Col>
-
-                  <Col lg="4">
-                    <Card>
-                      <CardHeader className="card-header">Header</CardHeader>
-                      <CardBody>
-                        <CardTitle>Special Title Treatment</CardTitle>
-                        <CardText>
-                          With supporting text below as a natural lead-in to
-                          additional content.
-                        </CardText>
+                        <CardTitle>
+                          Use as a supplment to talk therapy to better
+                          understand your clients day-to-day experience
+                        </CardTitle>
+                        <CardText />
                       </CardBody>
                     </Card>
                   </Col>
