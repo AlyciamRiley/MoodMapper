@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 import "./Forms.css";
+import "../Pages/PagesStyles/mobile.css";
 
 export default class Login extends Component {
   constructor() {

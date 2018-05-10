@@ -8,6 +8,7 @@ import Profile from "./components/Pages/Profile";
 import Survey from "./components/Pages/Survey";
 
 import "./App.css";
+import "./components/Pages/PagesStyles/mobile.css";
 
 class App extends Component {
   render() {
